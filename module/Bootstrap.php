@@ -9,7 +9,13 @@ class ManipleVendorAssets_Bootstrap extends Zend_Application_Module_Bootstrap
 
     public function onBootstrap(Maniple_Application_ModuleBootstrapper $moduleBootstrapper)
     {
-        $view = $moduleBootstrapper->getBootstrap()->bootstrap('view')->getResource('view');
+        $moduleBootstrapper->getBootstrap()->bootstrap('request');
+
+        $bootstrap = $moduleBootstrapper->getBootstrap();
+        $bootstrap->bootstrap('request');
+        $bootstrap->bootstrap('view');
+
+        $view = $bootstrap->getResource('view');
         $jsbase = $view->baseUrl('/assets/vendor/js');
 
         // add JavaScript 1.6 compatibility script
