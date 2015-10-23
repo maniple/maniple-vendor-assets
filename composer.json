@@ -1,0 +1,11 @@
+{
+    "name": "maniple/maniple-vendor-assets",
+    "type": "zefram-module",
+    "authors": [
+        {
+            "name": "xemlock",
+            "email": "xemlock@gmail.com"
+        }
+    ],
+    "require": {}
+}
