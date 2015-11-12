@@ -13,9 +13,10 @@ class Module
 
     public function onBootstrap(MvcEvent $e)
     {
-        $serviceManager = $e->getApplication()->getServiceManager();
+        /** @var $bootstrap \Zend_Application_Bootstrap_Bootstrap */
+        $bootstrap = $e->getApplication()->getServiceManager()->get('Bootstrap');
 
-        $view = $serviceManager->get('View');
+        $view = $bootstrap->getResource('View');
         $jsbase = $view->baseUrl('/assets/vendor/js');
 
         // add JavaScript 1.6 compatibility script
