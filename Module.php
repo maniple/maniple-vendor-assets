@@ -16,6 +16,7 @@ class Module
         /** @var $bootstrap \Zend_Application_Bootstrap_Bootstrap */
         $bootstrap = $e->getApplication()->getServiceManager()->get('Bootstrap');
         $bootstrap->bootstrap('View');
+        $bootstrap->bootstrap('Request');
 
         $view = $bootstrap->getResource('View');
         $jsbase = $view->baseUrl('/assets/vendor/js');
