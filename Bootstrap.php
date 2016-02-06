@@ -54,9 +54,20 @@ class ManipleVendorAssets_Bootstrap extends Zend_Application_Module_Bootstrap
 
         $view->headScript()->appendFile($jsbase . '/modernizr.min.js');
 
-        // jQuery since 1.7 supports AMD modules, so there is no need
-        // to define or shim it
+        // jQuery since 1.7 supports AMD modules, more over it defines itself
+        // as a named module (jquery), so it can be used without hacks in
+        // requirejs and non-requirejs environment
         $view->headScript()->appendFile($jsbase . '/jquery/jquery.min.js');
         $view->headScript()->appendFile($jsbase . '/jquery/jquery.plugins.js');
+
+        // on the other hand, jQuery UI if RequireJS is present, must be loaded
+        // via require, otherwise an "Mismatched anonymous define() module" will
+        // be thrown. This little hack makes it work in both environments
+        $view->headScript()->appendScript(
+            'window.__define=window.define;window.define=function(){}</script>' .
+            '<script src="' . $jsbase . '/jquery-ui/jquery-ui.min.js' . '"></script>' .
+            '<script>window.define=window.__define'
+        );
+        $view->headScript()->appendFile($jsbase . '/jquery-ui/jquery-ui.plugins.js');
     }
 }
