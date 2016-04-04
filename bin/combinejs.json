@@ -1,10 +1,10 @@
 {
     "jquery": {
-        "src": "../assets/js/jquery/jquery.plugins",
-        "dst": "../assets/js/jquery/jquery.plugins.js"
+        "src": "../public/js/jquery/jquery.plugins",
+        "dst": "../public/js/jquery/jquery.plugins.js"
     },
     "jquery-ui": {
-        "src": "../assets/js/jquery-ui/jquery-ui.plugins",
-        "dst": "../assets/js/jquery-ui/jquery-ui.plugins.js"
+        "src": "../public/js/jquery-ui/jquery-ui.plugins",
+        "dst": "../public/js/jquery-ui/jquery-ui.plugins.js"
     }
 }
