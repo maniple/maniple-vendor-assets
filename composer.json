@@ -1,6 +1,6 @@
 {
     "name": "maniple/maniple-vendor-assets",
-    "type": "zefram-module",
+    "type": "zend1-module",
     "license": "MIT",
     "authors": [
         {
@@ -9,6 +9,6 @@
         }
     ],
     "require": {
-        "xemlock/zefram-composer-installer": "*"
+        "xemlock/zend1-composer-installer": "*"
     }
 }
