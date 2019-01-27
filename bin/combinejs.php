@@ -43,7 +43,7 @@ $CONFIG = json_decode(file_get_contents($CONFIG_PATH), true);
 
 // detect java and closure compiler
 $compiler = dirname(__FILE__) . DS . 'compiler.jar';
-$dev_null = stripos(PHP_OS, 'win') === false ? '/dev/null' : 'nul';
+$dev_null = strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN' ? '/dev/null' : 'nul';
 system("java -version 2>{$dev_null}", $retval);
 $has_compiler = is_file($compiler) && !$retval;
 
