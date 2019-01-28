@@ -1,6 +1,12 @@
 /*! Magnific Popup - v0.9.9 - 2013-12-27
 * http://dimsemenov.com/plugins/magnific-popup/
-* Copyright (c) 2013 Dmitry Semenov; */
+* Copyright (c) 2013 Dmitry Semenov;
+*
+* Modification: Ignore key events originating from INPUT/TEXTAREA/SELECT
+* which fixes:
+* - https://github.com/dimsemenov/Magnific-Popup/issues/444
+* - https://github.com/dimsemenov/Magnific-Popup/issues/461
+* */
 ;(function($) {
 
 /*>>core*/
@@ -285,6 +291,7 @@ MagnificPopup.prototype = {
 		if(mfp.st.enableEscapeKey) {
 			// Close on ESC key
 			_document.on('keyup' + EVENT_NS, function(e) {
+			    if (['INPUT', 'TEXTAREA', 'SELECT'].indexOf(e.target.tagName) !== -1) { return; }
 				if(e.keyCode === 27) {
 					mfp.close();
 				}
@@ -1733,6 +1740,7 @@ $.magnificPopup.registerModule('gallery', {
 				}
 
 				_document.on('keydown'+ns, function(e) {
+                    if (['INPUT', 'TEXTAREA', 'SELECT'].indexOf(e.target.tagName) !== -1) { return; }
 					if (e.keyCode === 37) {
 						mfp.prev();
 					} else if (e.keyCode === 39) {
