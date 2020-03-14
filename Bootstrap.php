@@ -35,14 +35,8 @@ class ManipleVendorAssets_Bootstrap extends Zend_Application_Module_Bootstrap
                 array(
                     'baseUrl' => $view->baseUrl('/'),
                     'paths' => array(
-                        'handlebars.runtime'    => $jsbase . '/handlebars.runtime.min',
                         'jquery-ui'             => $jsbase . '/jquery-ui/jquery-ui.min',
                         'jquery.magnific-popup' => $jsbase . '/jquery/jquery.magnific-popup.min',
-                    ),
-                    'shim' => array(
-                        'handlebars.runtime' => array(
-                            'exports' => 'Handlebars',
-                        ),
                     ),
                 ),
                 array(
